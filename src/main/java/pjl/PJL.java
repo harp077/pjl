@@ -91,9 +91,12 @@ public class PJL extends WindowAdapter implements ActionListener {
     }
 
     public void windowClosing(WindowEvent e) {
-        System.out.println("Good Bye!");
-        super.windowClosing(e);
-        System.exit(0);
+       int r = JOptionPane.showConfirmDialog(frame, "Really Quit ?", "Quit ?", JOptionPane.YES_NO_OPTION);
+        if (r == JOptionPane.YES_OPTION) {
+            System.out.println("Good Bye!");
+            super.windowClosing(e);
+            System.exit(0);
+        }
     }
 
     public static void main(String[] args) {
