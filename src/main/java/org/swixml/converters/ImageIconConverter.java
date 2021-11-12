@@ -59,6 +59,7 @@ import org.swixml.Localizer;
 import org.swixml.Parser;
 
 import javax.swing.*;
+import java.net.URL;
 
 /**
  * A Converter that turns a Strings in the form of a filename into an ImageIcon objects.
@@ -99,9 +100,14 @@ public class ImageIconConverter implements Converter {
           attr.setValue( localizer.getString( attr.getValue() ) );
       }
       try {
-        //java.net.URL imgURL = Converter.class.getResource( attr.getValue() );
-        //icon = new ImageIcon( imgURL );
-        icon = new ImageIcon( localizer.getClassLoader().getResource( attr.getValue() ) );
+        String imgPath = attr.getValue();
+        if (imgPath.startsWith("file:")) {
+          java.net.URL imgURL = new URL(imgPath);
+          icon = new ImageIcon( imgURL );
+        }
+        else {
+          icon = new ImageIcon(localizer.getClassLoader().getResource(attr.getValue()));
+        }
       } catch (Exception e) {
         // intentionally empty
       }

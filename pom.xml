@@ -27,13 +27,13 @@
             <artifactId>jgoodies-forms</artifactId>
             <version>1.8.0</version>
         </dependency>
-        
+
         <dependency>
-            <groupId>de.muntjak</groupId>
+            <groupId>net.sf.squirrel-sql.thirdparty-non-maven</groupId>
             <artifactId>tinylaf</artifactId>
             <version>1.4.0</version>
-        </dependency>        
-        
+        </dependency>
+
     </dependencies>
     
     <build>
@@ -115,7 +115,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            
+
         </plugins>
         
     </build>    

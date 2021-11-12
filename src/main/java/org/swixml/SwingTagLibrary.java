@@ -52,6 +52,8 @@
 */
 package org.swixml;
 
+import org.swixml.custom.CustomMenuItem;
+
 import javax.swing.*;
 import javax.swing.table.JTableHeader;
 
@@ -108,6 +110,7 @@ public final class SwingTagLibrary extends TagLibrary {
     registerTag( "Menu", JMenu.class );
     registerTag( "Menubar", JMenuBar.class );
     registerTag( "Menuitem", JMenuItem.class );
+    registerTag( "CustomMenuitem", CustomMenuItem.class );
     registerTag( "Panel", JPanel.class );
     registerTag( "PasswordField", JPasswordField.class );
     registerTag( "PopupMenu", JPopupMenu.class );

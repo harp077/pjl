@@ -5,6 +5,7 @@ import com.lipstikLF.theme.DefaultTheme;
 import com.lipstikLF.theme.KlearlooksTheme;
 import com.lipstikLF.theme.LightGrayTheme;*/
 import org.swixml.SwingEngine;
+import org.swixml.custom.CustomMenuItem;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -35,7 +36,10 @@ public class PJL extends WindowAdapter implements ActionListener {
 
     public Action execAction = new AbstractAction() {
         public void actionPerformed(ActionEvent e) {
-            String bufer = ((JMenuItem) e.getSource()).getText();
+            String bufer = (e.getSource() instanceof CustomMenuItem) ?
+                ((CustomMenuItem) e.getSource()).getPath()
+            :
+                ((JMenuItem) e.getSource()).getText();
             new Thread(() -> {
                 execProg(bufer);
             }).start();
